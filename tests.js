@@ -50,7 +50,7 @@ var workflow2 = {
 };
 
 var forrest = {
-  times : 0,
+  times: 0,
   'init': {
     body: function() {
       this.message = this.message + ' run! ';
@@ -59,7 +59,7 @@ var forrest = {
   },
   run: {
     body: function() {
-      if(this.times > 2)
+      if (this.times > 2)
         return null;
       console.log(this.message);
       this.times++;
