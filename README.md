@@ -1,1 +1,11 @@
-# jupiter
+# Codename: jupiter
+
+Simple stateless workflow engine.
+
+## Roadmap
+
+1. Stable version for simple use
+2. Sync & Async version
+
+
+**Warning**: the engine is in constant development, do not use for any production use.
