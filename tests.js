@@ -49,5 +49,25 @@ var workflow2 = {
   }
 };
 
+var forrest = {
+  times : 0,
+  'init': {
+    body: function() {
+      this.message = this.message + ' run! ';
+      return this.run;
+    }
+  },
+  run: {
+    body: function() {
+      if(this.times > 2)
+        return null;
+      console.log(this.message);
+      this.times++;
+      return this.init;
+    }
+  }
+};
+
 module.exports.WorkflowExample1 = workflow1;
 module.exports.WorkflowExample2 = workflow2;
+module.exports.Forrest = forrest;
