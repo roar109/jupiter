@@ -1,11 +1,11 @@
 var Jupiter = require('./Jupiter').Jupiter;
-var workflowsTest = require('./tests');
+var workflowsTest = require('./example-definitions');
 
-console.log("Example1:");
+console.log("Example 1:");
 var workflow1 = Jupiter.workflow(workflowsTest.WorkflowExample1);
 workflow1.run("yoply");
 
-console.log("\nExample2:");
+console.log("\nExample 2:");
 Jupiter.workflow(workflowsTest.WorkflowExample2).run('some random json');
 
 console.log("\nRun forrest:");

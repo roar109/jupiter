@@ -1,6 +1,8 @@
 var Jupiter = {
   RUNNING_STATE: 'Running',
   workflow: function(states) {
+    //TODO validate states
+
     return {
       run: function(message) {
         states.message = message;
@@ -14,8 +16,8 @@ var Jupiter = {
     };
   },
   runInternal: function(states, state) {
-    if (state && isFunction(state.body)) {
-      var resp = state.body.bind(states)();
+    if (state && isFunction(state)) {
+      var resp = state.bind(states)();
       Jupiter.runInternal(states, resp);
     }
   }
