@@ -1,12 +1,12 @@
 var Jupiter = {
   RUNNING_STATE: 'Running',
+  INIT_METHOD_NAME: 'init',
   workflow: function(states) {
-    //TODO validate states
-
+    this.validateStates(states);
     return {
       run: function(message) {
         states.message = message;
-        Jupiter.runInternal(states, states['init']);
+        Jupiter.runInternal(states, states[Jupiter.INIT_METHOD_NAME]);
         return Jupiter.RUNNING_STATE;
       },
       runAsync: function(message, callback) {
@@ -20,6 +20,16 @@ var Jupiter = {
       var resp = state.bind(states)();
       Jupiter.runInternal(states, resp);
     }
+  },
+  validateStates: function(states) {
+    var keys = Object.keys(states);
+    var initFound = false;
+    for (i = 0; i < keys.length; i++) {
+      if (isFunction(states[keys[i]]) === true) {
+        if (keys[i] === Jupiter.INIT_METHOD_NAME) initFound = true;
+      }
+    }
+    if (!initFound) throw 'No init method found';
   }
 };
 
