@@ -6,9 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": {
+    "name": "Hector Mendoza",
+    "email": "roar109@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
-    "simple-state-machine": "0.0.0"
+
   }
 }

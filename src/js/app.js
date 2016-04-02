@@ -12,11 +12,13 @@ Jupiter.workflow(workflowsTest.Forrest).run('Run forest!');
 
 console.log("\nSimple:");
 Jupiter.workflow({
-  'init': function(){
+  'init': function(context){
     this.message += 'from here';
-    return this.s1;
+    setTimeout(function(){
+      context.continue(this, this.s1);
+    }.bind(this),2000);
   },
-  's1':function(){
+  's1':function(context){
     console.log(this.message + ' to the eternity');
   }
-}).run('I, ');
+}).runAsync('I, ');
