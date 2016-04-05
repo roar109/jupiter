@@ -10,15 +10,18 @@ Jupiter.workflow(workflowsTest.WorkflowExample2).run('some random json');
 console.log("\nRun forrest:");
 Jupiter.workflow(workflowsTest.Forrest).run('Run forest!');
 
-console.log("\nSimple:");
+//console.log("\nOperations (async):");
+//Jupiter.workflow(workflowsTest.Operations).runAsync(9);
+
+console.log("\nSimple (async):");
 Jupiter.workflow({
-  'init': function(context){
+  init : function(context){
     this.message += 'from here';
     setTimeout(function(){
-      context.continue(this, this.s1);
-    }.bind(this),2000);
+      context.continue(this, 's1');
+    }.bind(this), 2000);
   },
-  's1':function(context){
+  s1 : function(context){
     console.log(this.message + ' to the eternity');
   }
 }).runAsync('I, ');

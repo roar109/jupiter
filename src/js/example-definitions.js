@@ -50,6 +50,24 @@ var forrest = {
   }
 };
 
+var operations = {
+  init : function(){
+    console.log('evaluating operations...');
+    if(this.message > 0){
+      return this.SHALLPASS;
+    }
+    return this.ERROR;
+  },
+  ERROR : function(){
+    console.log("the number is less than zero");
+  },
+  SHALLPASS : function(){
+    console.log('message:'+this.message);
+    console.log('total: '+this.message * 10);
+  }
+};
+
 module.exports.WorkflowExample1 = workflow1;
 module.exports.WorkflowExample2 = workflow2;
 module.exports.Forrest = forrest;
+module.exports.Operations = operations;
